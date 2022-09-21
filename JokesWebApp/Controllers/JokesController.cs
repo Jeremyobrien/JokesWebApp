@@ -22,7 +22,19 @@ namespace JokesWebApp.Controllers
         // GET: Jokes
         public async Task<IActionResult> Index()
         {
-              return View(await _context.Joke.ToListAsync());
+            return View(await _context.Joke.ToListAsync());
+        }
+
+        // GET: Jokes/ShowSearchForm
+        public async Task<IActionResult> ShowSearchForm()
+        {
+            return View();
+        }
+
+        // POST: Jokes/ShowSearchResults
+        public async Task<IActionResult> ShowSearchResults(String SearchPhrase)
+        {
+            return View("Index", await _context.Joke.ToListAsync());
         }
 
         // GET: Jokes/Details/5
